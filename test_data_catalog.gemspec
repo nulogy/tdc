@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.summary = "A simple framework for creating a Test Data Catalog."
   spec.homepage = "https://github.com/nulogy/test_data_catalog"
 
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
   spec.metadata = {
     "homepage_uri" => "https://github.com/nulogy/test_data_catalog",
@@ -26,6 +26,8 @@ Gem::Specification.new do |spec|
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_runtime_dependency "activesupport", "~> 5.2.4"
 
   spec.add_development_dependency "rake", ">= 12.1", "< 13.1"
   spec.add_development_dependency "rspec", ">= 3.9", "< 4.0"

@@ -66,7 +66,7 @@ Style/BlockDelimiters:
     - 'let'
 
 Style/Documentation:
-  Enabled: false
+  Enabled: true
 
 Style/ExponentialNotation:
   Enabled: true
@@ -92,6 +92,9 @@ Style/HashSyntax:
 # No need to mention StandardError.
 Style/RescueStandardError:
   EnforcedStyle: implicit
+
+Style/SlicingWithRange:
+  Enabled: false
 
 # We'll just use double quotes everywhere.
 Style/StringLiterals:

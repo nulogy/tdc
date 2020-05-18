@@ -1,5 +1,5 @@
 RSpec.describe TestDataCatalog do
-  it "has a version number" do
-    expect(TestDataCatalog::VERSION).to_not be_nil
+  it "has the expected version number" do
+    expect(TestDataCatalog::VERSION).to eq("0.1.0")
   end
 end
