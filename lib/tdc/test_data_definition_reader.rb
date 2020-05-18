@@ -21,9 +21,10 @@ module Tdc
 
     def definitions_file(path_elements)
       fully_qualified_path_elements = [@catalog_root_directory].concat(path_elements.map(&:to_s))
+
       fully_qualified_path_elements.last.concat(".yml")
 
-      Tdc::Engine.root.join("test_data_definition", *fully_qualified_path_elements)
+      File.join(*fully_qualified_path_elements)
     end
 
     def data_definition_from(definitions_file)
