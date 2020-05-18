@@ -1,4 +1,4 @@
-module TestDataCatalog
+module Tdc
   module Generators
     #
     # Knows how to provide a configurable instance definition.
@@ -9,7 +9,7 @@ module TestDataCatalog
       extend ActiveSupport::Concern
 
       included do
-        include TestDataCatalog::Generators::DefinitionSourcable
+        include Tdc::Generators::DefinitionSourcable
 
         attr_reader :instance_definition
 

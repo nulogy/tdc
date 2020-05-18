@@ -1,4 +1,4 @@
-module TestDataCatalog
+module Tdc
   module Generators
     #
     # Creates ghost methods for use in generators.

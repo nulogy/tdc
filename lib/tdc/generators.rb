@@ -1,4 +1,4 @@
-module TestDataCatalog
+module Tdc
   #
   # Namespace to host generators
   #

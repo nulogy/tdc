@@ -1,4 +1,4 @@
-module TestDataCatalog
+module Tdc
   #
   # Knows how to read test data definitions from an in-memory representation.
   #
@@ -19,7 +19,7 @@ module TestDataCatalog
     end
 
     def with_indifferent_access
-      self.extend(TestDataCatalog::WithIndifferentAccessDecorator) # rubocop:disable Style/RedundantSelf
+      self.extend(Tdc::WithIndifferentAccessDecorator) # rubocop:disable Style/RedundantSelf
     end
   end
 end

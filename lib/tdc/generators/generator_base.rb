@@ -1,4 +1,4 @@
-module TestDataCatalog
+module Tdc
   module Generators
     #
     # Abstract base class for all Test Data Catalog generators.

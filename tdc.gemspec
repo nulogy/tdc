@@ -1,21 +1,21 @@
-require_relative "lib/test_data_catalog/version"
+require_relative "lib/tdc/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "test_data_catalog"
-  spec.version = TestDataCatalog::VERSION
+  spec.name = "tdc"
+  spec.version = Tdc::VERSION
   spec.authors = ["Alistair McKinnell"]
   spec.email = ["alistairm@nulogy.com"]
 
-  spec.summary = "A simple framework for creating a Test Data Catalog."
-  spec.homepage = "https://github.com/nulogy/test_data_catalog"
+  spec.summary = "A simple framework for creating a Test Data Catalog"
+  spec.homepage = "https://github.com/nulogy/tdc"
 
   spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
   spec.metadata = {
-    "homepage_uri" => "https://github.com/nulogy/test_data_catalog",
-    "changelog_uri" => "https://github.com/nulogy/test_data_catalog/blob/master/CHANGELOG.md",
-    "source_code_uri" => "https://github.com/nulogy/test_data_catalog",
-    "bug_tracker_uri" => "https://github.com/nulogy/test_data_catalog/issues"
+    "homepage_uri" => "https://github.com/nulogy/tdc",
+    "changelog_uri" => "https://github.com/nulogy/tdc/blob/master/CHANGELOG.md",
+    "source_code_uri" => "https://github.com/nulogy/tdc",
+    "bug_tracker_uri" => "https://github.com/nulogy/tdc/issues"
   }
 
   # Specify which files should be added to the gem when it is released.

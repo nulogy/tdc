@@ -1,12 +1,12 @@
-module TestDataCatalog
+module Tdc
   module Generators
     #
     # Abstract class for defining generators that define a single model instance.
     #
     # See also StandardGenerator.
     #
-    class SingularGenerator < TestDataCatalog::Generators::GeneratorBase
-      include TestDataCatalog::Generators::InstanceDefinitionConfigurable
+    class SingularGenerator < Tdc::Generators::GeneratorBase
+      include Tdc::Generators::InstanceDefinitionConfigurable
 
       def initialize(data_definition, current_catalog)
         super

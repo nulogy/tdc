@@ -1,4 +1,4 @@
-module TestDataCatalog
+module Tdc
   #
   # Knows how to transform the result of calling the TestDefinitionReader#read method from an Array
   # of Hash instances into an Array of ActiveSupport::HashWithIndifferentAccess instances.

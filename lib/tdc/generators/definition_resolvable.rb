@@ -1,4 +1,4 @@
-module TestDataCatalog
+module Tdc
   module Generators
     #
     # Knows how to resolve tag values in an instance definition. The tag value will be replaced

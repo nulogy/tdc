@@ -1,12 +1,12 @@
-module TestDataCatalog
+module Tdc
   module Generators
     #
     # Abstract class for defining generators that define a collection of model instances.
     #
     # See also SingularGenerator.
     #
-    class StandardGenerator < TestDataCatalog::Generators::GeneratorBase
-      include TestDataCatalog::Generators::InstanceDefinitionConfigurable
+    class StandardGenerator < Tdc::Generators::GeneratorBase
+      include Tdc::Generators::InstanceDefinitionConfigurable
 
       def generate
         CatalogEntries.new.tap do |catalog_entries|

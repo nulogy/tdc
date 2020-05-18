@@ -1,4 +1,4 @@
-module TestDataCatalog
+module Tdc
   module Generators
     #
     # Knows how to contain arbitrary collections of model objects. As model instances are created

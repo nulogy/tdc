@@ -1,4 +1,4 @@
-module TestDataCatalog
+module Tdc
   #
   # Knows how to read test data definitions from YAML files.
   #
@@ -14,7 +14,7 @@ module TestDataCatalog
     end
 
     def with_indifferent_access
-      self.extend(TestDataCatalog::WithIndifferentAccessDecorator) # rubocop:disable Style/RedundantSelf
+      self.extend(Tdc::WithIndifferentAccessDecorator) # rubocop:disable Style/RedundantSelf
     end
 
     private
@@ -23,7 +23,7 @@ module TestDataCatalog
       fully_qualified_path_elements = [@catalog_root_directory].concat(path_elements.map(&:to_s))
       fully_qualified_path_elements.last.concat(".yml")
 
-      TestDataCatalog::Engine.root.join("test_data_definition", *fully_qualified_path_elements)
+      Tdc::Engine.root.join("test_data_definition", *fully_qualified_path_elements)
     end
 
     def data_definition_from(definitions_file)
