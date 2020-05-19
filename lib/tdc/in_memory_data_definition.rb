@@ -13,7 +13,7 @@ module Tdc
 
     def read(*path_elements)
       @store.fetch(path_elements) do
-        raise MissingPathElementsError, "The path did not have any data associated with it: #{path_elements.inspect}"
+        raise Tdc::FatalError, "The path did not have any data associated with it: #{path_elements.inspect}"
       end
     end
 

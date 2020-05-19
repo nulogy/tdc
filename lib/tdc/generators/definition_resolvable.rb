@@ -51,7 +51,7 @@ module Tdc
         unless sourced_object
           message = "Could not find a tag reference for '#{key}' in the catalog entries provided."
 
-          raise Tdc::UnresolvableTagError, message
+          raise Tdc::FatalError, message
         end
 
         # Replace the tag value with the sourced object.
