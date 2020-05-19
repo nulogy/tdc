@@ -7,7 +7,9 @@ module Tdc
     def read(*path_elements)
       definitions = super
 
-      raise "Use 'with_indifferent_access' only for an Array" unless definitions.is_a?(Array)
+      unless definitions.is_a?(Array)
+        raise DecoratorError, "Use 'with_indifferent_access' only for an Array"
+      end
 
       definitions.map do |definition|
         definition.is_a?(Hash) ? ActiveSupport::HashWithIndifferentAccess.new(definition) : definition

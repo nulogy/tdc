@@ -12,11 +12,11 @@ module Tdc
       end
 
       def generate
-        raise "Must be implemented"
+        raise Tdc::MissingHookOverrideError
       end
 
       def instance_definitions
-        raise "Must be implemented"
+        raise Tdc::MissingHookOverrideError
       end
     end
   end

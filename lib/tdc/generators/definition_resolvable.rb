@@ -48,7 +48,9 @@ module Tdc
         # Use the tag to source an object from the current catalog.
         sourced_object = catalog_entry.send(tag)
 
-        raise "Could not find a tag reference for '#{key}' in the catalog entries provided." unless sourced_object
+        unless sourced_object
+          raise Tdc::UnresolvableTagError, "Could not find a tag reference for '#{key}' in the catalog entries provided."
+        end
 
         # Replace the tag value with the sourced object.
         instance_definition[key] = sourced_object

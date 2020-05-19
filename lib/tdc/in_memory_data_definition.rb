@@ -12,9 +12,8 @@ module Tdc
     end
 
     def read(*path_elements)
-      # TDC (2020-05-18): Should we define our own RuntimeError rather than raise?
       @store.fetch(path_elements) do
-        raise "The path did not have any data associated with it: #{path_elements.inspect}"
+        raise MissingPathElementsError, "The path did not have any data associated with it: #{path_elements.inspect}"
       end
     end
 

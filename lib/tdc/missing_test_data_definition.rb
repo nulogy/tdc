@@ -1,3 +1,3 @@
 module Tdc
-  MissingTestDataDefinition = Class.new(RuntimeError)
+  MissingTestDataDefinitionError = Class.new(RuntimeError)
 end
