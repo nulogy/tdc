@@ -31,7 +31,9 @@ module Tdc
       def singular_instance_definition
         all_instance_definitions = instance_definitions
 
-        raise "For the moment we only generate a single model instance" if all_instance_definitions.many?
+        if all_instance_definitions.many?
+          raise Tdc::NonSingularInstanceError, "For the moment we only generate a single model instance"
+        end
 
         # Delete the tag so that the models do not need to filter it out.
         all_instance_definitions.first.except("tag")

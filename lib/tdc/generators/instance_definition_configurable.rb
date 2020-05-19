@@ -34,7 +34,7 @@ module Tdc
       # Hook method: subclasses are expected to define how to generate a model instance.
       #
       def generate_instance
-        raise "Must be implemented"
+        raise Tdc::MissingHookOverrideError
       end
 
       #
