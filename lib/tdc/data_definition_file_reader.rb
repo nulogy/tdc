@@ -2,7 +2,7 @@ module Tdc
   #
   # Knows how to read data definitions from YAML files.
   #
-  class TestDataDefinitionReader < Tdc::DataDefinition
+  class DataDefinitionFileReader < Tdc::DataDefinition
     EMPTY_DEFINITIONS = []
 
     def initialize(catalog_root_directory)
