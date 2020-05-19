@@ -32,7 +32,7 @@ module Tdc
         all_instance_definitions = instance_definitions
 
         if all_instance_definitions.many?
-          raise Tdc::NonSingularInstanceError, "For the moment we only generate a single model instance"
+          raise Tdc::FatalError, "For the moment we only generate a single model instance"
         end
 
         # Delete the tag so that the models do not need to filter it out.
