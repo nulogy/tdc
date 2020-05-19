@@ -1,4 +1,4 @@
-RSpec.describe Tdc::TestDataDefinitionReader do
+RSpec.describe Tdc::DataDefinitionFileReader do
   it "reads single definition" do
     reader = create_reader("catalog_root")
 
