@@ -1,8 +1,8 @@
 module Tdc
   #
-  # Knows how to read test data definitions from YAML files.
+  # Knows how to read data definitions from YAML files.
   #
-  class TestDataDefinitionReader
+  class TestDataDefinitionReader < Tdc::DataDefinition
     EMPTY_DEFINITIONS = []
 
     def initialize(catalog_root_directory)
@@ -11,10 +11,6 @@ module Tdc
 
     def read(*path_elements)
       data_definition_from(definitions_file(path_elements))
-    end
-
-    def with_indifferent_access
-      self.extend(Tdc::WithIndifferentAccessDecorator) # rubocop:disable Style/RedundantSelf
     end
 
     private

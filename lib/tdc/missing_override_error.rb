@@ -1,5 +1,5 @@
 module Tdc
-  class MissingHookOverrideError < Tdc::FatalError
+  class MissingOverrideError < Tdc::FatalError
     def initialize
       super("Must be implemented")
     end

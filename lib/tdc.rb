@@ -11,6 +11,7 @@ require "tdc/with_indifferent_access_decorator"
 
 require "tdc/generators"
 require "tdc/generators/catalog_entries"
+require "tdc/generators/data_definition"
 require "tdc/generators/definition_resolvable"
 require "tdc/generators/definition_sourcable"
 require "tdc/generators/generator_base"

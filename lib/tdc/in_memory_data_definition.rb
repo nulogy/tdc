@@ -1,14 +1,10 @@
 module Tdc
   #
-  # Knows how to read test data definitions from an in-memory representation.
+  # Knows how to read data definitions from an in-memory representation.
   #
-  class InMemoryDataDefinition
+  class InMemoryDataDefinition < Tdc::DataDefinition
     def initialize(path_elements_data = {})
       @store = path_elements_data
-    end
-
-    def store(path_elements, data)
-      @store[path_elements] = data
     end
 
     def read(*path_elements)
@@ -17,8 +13,8 @@ module Tdc
       end
     end
 
-    def with_indifferent_access
-      self.extend(Tdc::WithIndifferentAccessDecorator) # rubocop:disable Style/RedundantSelf
+    def store(path_elements, data)
+      @store[path_elements] = data
     end
   end
 end
