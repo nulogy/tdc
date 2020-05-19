@@ -1,4 +1,5 @@
 require "ostruct"
+require "yaml"
 
 require "active_support/concern"
 require "active_support/core_ext/hash/indifferent_access"
