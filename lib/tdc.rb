@@ -8,6 +8,7 @@ require "tdc/data_definition"
 require "tdc/data_definition_file_reader"
 require "tdc/fatal_error"
 require "tdc/in_memory_data_definition"
+require "tdc/missing_override_error"
 require "tdc/version"
 require "tdc/with_indifferent_access_decorator"
 
