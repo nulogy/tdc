@@ -31,8 +31,8 @@ module Tdc
       def singular_instance_definition
         all_instance_definitions = instance_definitions
 
-        if all_instance_definitions.size > 1
-          raise Tdc::FatalError, "For the moment we only generate a single model instance"
+        if all_instance_definitions.many?
+          raise Tdc::FatalError, "A singular generator only generates a single model instance"
         end
 
         # Delete the tag so that the models do not need to filter it out.

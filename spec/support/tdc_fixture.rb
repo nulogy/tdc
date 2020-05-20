@@ -1,18 +1,24 @@
 module Support
   #
-  # A globally shared test fixture
+  # A globally shared test fixture. See the tdc_spec_helper.
   #
   module TdcFixture
+
+
     class SampleSingularGenerator < Tdc::Generators::SingularGenerator
-      def generate
-        # TDC (2020-05-20): TBD
+      attr_reader :instance_definitions
+
+      def inject_instance_definitions(instance_definitions)
+        @instance_definitions = instance_definitions
+      end
+
+      private
+
+      def generate_instance
       end
     end
 
     class SampleStandardGenerator < Tdc::Generators::StandardGenerator
-      def generate
-        # TDC (2020-05-20): TBD
-      end
     end
   end
 end
