@@ -1,8 +1,9 @@
 require "ostruct"
 require "yaml"
 
+require "active_support"
 require "active_support/concern"
-require "active_support/core_ext/hash/indifferent_access"
+require "active_support/core_ext"
 
 require "tdc/data_definition"
 require "tdc/data_definition_file_reader"
