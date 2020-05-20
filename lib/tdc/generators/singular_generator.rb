@@ -31,7 +31,7 @@ module Tdc
       def singular_instance_definition
         all_instance_definitions = instance_definitions
 
-        if all_instance_definitions.many?
+        if all_instance_definitions.size > 1
           raise Tdc::FatalError, "For the moment we only generate a single model instance"
         end
 
