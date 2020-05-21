@@ -5,9 +5,7 @@ module Tdc
     #
     # See also SingularGenerator.
     #
-    class StandardGenerator < Tdc::Generators::GeneratorBase
-      include Tdc::Generators::InstanceDefinitionConfigurable
-
+    class StandardGenerator < Tdc::Generators::ConfigurableGenerator
       def generate
         CatalogEntries.new.tap do |catalog_entries|
           instance_definitions.each do |instance_definition|

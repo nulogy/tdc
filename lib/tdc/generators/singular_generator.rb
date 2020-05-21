@@ -5,9 +5,7 @@ module Tdc
     #
     # See also StandardGenerator.
     #
-    class SingularGenerator < Tdc::Generators::GeneratorBase
-      include Tdc::Generators::InstanceDefinitionConfigurable
-
+    class SingularGenerator < Tdc::Generators::ConfigurableGenerator
       def initialize(data_definition, current_catalog)
         super
 
@@ -32,7 +30,7 @@ module Tdc
         all_instance_definitions = instance_definitions
 
         if all_instance_definitions.many?
-          raise Tdc::FatalError, "For the moment we only generate a single model instance"
+          raise Tdc::FatalError, "A singular generator only generates a single model instance"
         end
 
         # Delete the tag so that the models do not need to filter it out.

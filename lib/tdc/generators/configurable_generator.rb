@@ -5,23 +5,12 @@ module Tdc
     #
     # Shared implementation between the StandardGenerator and the SingularGenerator abstract classes.
     #
-    module InstanceDefinitionConfigurable
-      extend ActiveSupport::Concern
+    class ConfigurableGenerator < Tdc::Generators::GeneratorBase
+      include Tdc::Generators::DefinitionSourcable
 
-      included do
-        include Tdc::Generators::DefinitionSourcable
+      attr_reader :instance_definition
 
-        attr_reader :instance_definition
-
-        source_definition_from :instance_definition
-      end
-
-      private
-
-      def configure_instance_definition(instance_definition)
-        @instance_definition = instance_definition
-        configure_definition_source(instance_definition)
-      end
+      source_definition_from :instance_definition
 
       def run_resolvers_and_generate_instance
         run_atx_resolvers(instance_definition)
@@ -42,6 +31,14 @@ module Tdc
       #
       def run_tag_resolvers(_instance_definition)
         # Do nothing
+      end
+
+      private
+
+      def configure_instance_definition(instance_definition)
+        @instance_definition = instance_definition
+
+        configure_definition_source(instance_definition)
       end
 
       def run_atx_resolvers(instance_definition)
