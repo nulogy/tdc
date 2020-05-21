@@ -5,9 +5,7 @@ module Tdc
     #
     # See also StandardGenerator.
     #
-    class SingularGenerator < Tdc::Generators::GeneratorBase
-      include Tdc::Generators::InstanceDefinitionConfigurable
-
+    class SingularGenerator < Tdc::Generators::ConfigurableGenerator
       def initialize(data_definition, current_catalog)
         super
 
