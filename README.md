@@ -4,7 +4,7 @@
 
 **Extension Points**
 
-Define your own test data generators by inheriting from ```StandardGenerator``` or ```Singular Generator```.
+Define your own test data generators by inheriting from ```StandardGenerator``` or ```SingularGenerator```. Best practice is to define an ```ApplicationStandardGenerator``` and an ```ApplicationSingularGenerator``` and have all other generators inherit from them.
 
 During generation the test data catalog will be represented by ```CatalogEntries``` that are populated by reading from ```YAML``` files with a ```DataDefinitionReader``` or provided directly by an ```InMemoryDataDefinition```.
 
