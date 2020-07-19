@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Improve Tdc::MissingOverrideError diagnostics
+
 ## [0.2.3] - 2020-05-21
 
 - Update the diagram in the README

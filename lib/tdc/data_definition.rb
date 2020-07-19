@@ -4,7 +4,7 @@ module Tdc
   #
   class DataDefinition
     def read(*_path_elements)
-      raise MissingOverrideError
+      raise MissingOverrideError, "Implement the 'read' method"
     end
 
     def with_indifferent_access

@@ -1,7 +1,3 @@
 module Tdc
-  class MissingOverrideError < Tdc::FatalError
-    def initialize
-      super("Must be implemented")
-    end
-  end
+  MissingOverrideError = Class.new(Tdc::FatalError)
 end
