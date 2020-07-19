@@ -12,11 +12,11 @@ module Tdc
       end
 
       def generate
-        raise Tdc::MissingOverrideError
+        raise Tdc::MissingOverrideError, "Implement the 'generate' method"
       end
 
       def instance_definitions
-        raise Tdc::MissingOverrideError
+        raise Tdc::MissingOverrideError, "Implement the 'instance_definitions' method"
       end
     end
   end
