@@ -6,6 +6,8 @@
 
 Define your own test data generators by inheriting from ```StandardGenerator``` or ```SingularGenerator```. Best practice is to define an ```ApplicationStandardGenerator``` and an ```ApplicationSingularGenerator``` and have all other generators inherit from them.
 
+Define your own definition resolvers by inheriting from ```DefinitionResolver```. Best practice is to define an ```ApplicationDefinitionResolver``` and all other definition resolvers inherit from it.
+
 During generation the test data catalog will be represented by ```CatalogEntries``` that are populated by reading from ```YAML``` files with a ```DataDefinitionReader``` or provided directly by an ```InMemoryDataDefinition```.
 
 **Data Definition DSL**

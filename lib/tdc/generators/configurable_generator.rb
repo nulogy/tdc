@@ -14,7 +14,7 @@ module Tdc
 
       def run_resolvers_and_generate_instance
         run_atx_resolvers(instance_definition)
-        run_tag_resolvers(instance_definition)
+        run_definition_resolvers(instance_definition)
 
         generate_instance
       end
@@ -29,7 +29,7 @@ module Tdc
       #
       # Hook method: subclasses may include the DefinitionResolvable concern to override.
       #
-      def run_tag_resolvers(_instance_definition)
+      def run_definition_resolvers(_instance_definition)
         # Do nothing
       end
 

@@ -1,6 +1,6 @@
 module Tdc
   #
-  # Namespace to host generators
+  # Namespace to host generators.
   #
   module Generators
   end

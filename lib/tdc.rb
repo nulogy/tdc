@@ -33,6 +33,11 @@ require "tdc/generators/configurable_generator"
 require "tdc/generators/singular_generator"
 require "tdc/generators/standard_generator"
 
+# Definition Resolvers
+require "tdc/definition_resolvers"
+require "tdc/definition_resolvers/definition_resolver"
+require "tdc/definition_resolvers/tag_resolver"
+
 #
 # A framework for building a Test Data Catalog
 #
