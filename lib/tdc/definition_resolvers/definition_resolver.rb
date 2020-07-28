@@ -8,6 +8,8 @@ module Tdc
 
       def configure_current_catalog(current_catalog)
         @current_catalog = current_catalog
+
+        self
       end
 
       def resolve(_instance_definition)
