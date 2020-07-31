@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Add the `empty?` method to `CatalogEntries`
+
 ## [0.3.2] - 2020-07-27
 
 - Return `self` from `DefinitionResolver#configure_current_catalog` to make it chainable
