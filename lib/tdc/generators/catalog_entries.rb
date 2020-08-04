@@ -8,6 +8,10 @@ module Tdc
       def add_catalog_entry(tag, entry)
         send("#{tag}=", entry)
       end
+
+      def empty?
+        to_h.empty?
+      end
     end
   end
 end
