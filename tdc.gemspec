@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = "A simple framework for creating a Test Data Catalog"
   spec.homepage = "https://github.com/nulogy/tdc"
+  spec.license = "MIT"
 
   spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
