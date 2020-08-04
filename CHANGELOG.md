@@ -6,7 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.3] - 2020-08-04
+
 - Add the `empty?` method to `CatalogEntries`
+- Evaluate `_atx` attribute values against a `Time.zone` instance
 
 ## [0.3.2] - 2020-07-27
 

@@ -10,6 +10,9 @@ AllCops:
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 
+Metrics/LineLength:
+  Max: 120
+
 # Rubocop and I cannot agree.
 Layout/MultilineMethodCallBraceLayout:
   Enabled: false
@@ -25,7 +28,6 @@ Lint/DuplicateElsifCondition:
 
 Lint/MixedRegexpCaptureTypes:
   Enabled: true
-
 
 Lint/RaiseException:
   Enabled: true
@@ -44,9 +46,6 @@ RSpec/AnyInstance:
 
 RSpec/ExampleLength:
   Max: 15
-
-Metrics/LineLength:
-  Max: 120
 
 RSpec/DescribeClass:
   Enabled: false
