@@ -1,8 +1,12 @@
 RSpec.describe Tdc::Generators::SingularGenerator, :tdc do
   let(:current_catalog) { instance_double(Tdc::Generators::CatalogEntries) }
   let(:data_definition) { instance_double(Tdc::DataDefinition) }
+  let(:generation_context) {
+    Tdc::Generators::GenerationContext
+      .new(current_catalog: current_catalog, data_definition: data_definition)
+  }
 
-  subject(:generator) { Support::TdcFixture::SampleSingularGenerator.new(data_definition, current_catalog) }
+  subject(:generator) { Support::TdcFixture::SampleSingularGenerator.new(generation_context) }
 
   it "generates" do
     instance_definitions = [

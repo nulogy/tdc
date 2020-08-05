@@ -4,11 +4,13 @@ module Tdc
     # Abstract base class for all Test Data Catalog generators.
     #
     class GeneratorBase
-      attr_reader :data_definition, :current_catalog
+      attr_reader :generation_context
 
-      def initialize(data_definition, current_catalog)
-        @data_definition = data_definition
-        @current_catalog = current_catalog
+      # ARM (2020-08-05): For backwards compatibility. Consider removing.
+      delegate :current_catalog, :data_definition, to: :generation_context
+
+      def initialize(generation_context)
+        @generation_context = generation_context
       end
 
       def generate
