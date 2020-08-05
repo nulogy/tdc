@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Breaking Changes
 
 - Introduce the `GenerationContext` abstraction
-- All generators are initialized with an instance of `Tdc::GenerationContext`
+- All generators are initialized with an instance of `Tdc::Generators::GenerationContext`
 
 ## [0.3.3] - 2020-08-04
 
