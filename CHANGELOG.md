@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.4] - 2020-08-05
+
+#### Breaking Changes
+
+- Introduce the `GenerationContext` abstraction
+- All generators are initialized with an instance of `Tdc::GenerationContext`
+
 ## [0.3.3] - 2020-08-04
 
 - Add the `empty?` method to `CatalogEntries`
@@ -55,5 +62,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### New Features
 
 - Avoid all PackManager dependencies
-
-

@@ -1,8 +1,12 @@
 RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
   let(:current_catalog) { instance_double(Tdc::Generators::CatalogEntries) }
   let(:data_definition) { instance_double(Tdc::DataDefinition) }
+  let(:generation_context) {
+    Tdc::Generators::GenerationContext
+      .new(current_catalog: current_catalog, data_definition: data_definition)
+  }
 
-  subject(:generator) { Support::TdcFixture::SampleStandardGenerator.new(data_definition, current_catalog) }
+  subject(:generator) { Support::TdcFixture::SampleStandardGenerator.new(generation_context) }
 
   it "generates" do
     instance_definitions = [
