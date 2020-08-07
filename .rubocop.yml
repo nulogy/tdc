@@ -120,6 +120,10 @@ Style/HashSyntax:
   Exclude:
     - 'Rakefile'
 
+# We are not going to optimize by freezing strings.
+Style/MutableConstant:
+  Enabled: false
+
 Style/RedundantAssignment:
   Enabled: true
 
@@ -150,6 +154,6 @@ Style/StringLiterals:
 Style/SymbolArray:
   Enabled: false
 
-# We are not going to optimize by freezing strings.
-Style/MutableConstant:
+# I prefer not to use %w or %W for an array of words.
+Style/WordArray:
   Enabled: false

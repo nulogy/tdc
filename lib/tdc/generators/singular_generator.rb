@@ -6,23 +6,13 @@ module Tdc
     # See also StandardGenerator.
     #
     class SingularGenerator < Tdc::Generators::ConfigurableGenerator
-      def with_definition(additional_definitions)
-        @additional_definitions = additional_definitions.stringify_keys.reject { |_, v| v == :missing_definition }
-
-        self
-      end
-
       def generate
-        configure_instance_definition(singular_instance_definition.merge(additional_definitions))
+        configure_instance_definition(singular_instance_definition)
 
         run_resolvers_and_generate_instance
       end
 
       private
-
-      def additional_definitions
-        @additional_definitions || {}
-      end
 
       def singular_instance_definition
         all_instance_definitions = instance_definitions
