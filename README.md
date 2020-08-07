@@ -4,7 +4,7 @@
 
 **Extension Points**
 
-Define your own test data generators by inheriting from ```StandardGenerator``` or ```SingularGenerator```. Best practice is to define an ```ApplicationStandardGenerator``` and an ```ApplicationSingularGenerator``` and have all other generators inherit from them.
+Define your own test data generators by inheriting from ```StandardGenerator```. Best practice is to define an ```ApplicationStandardGenerator``` and have all other generators inherit from it.
 
 Define your own definition resolvers by inheriting from ```DefinitionResolver```. Best practice is to define an ```ApplicationDefinitionResolver``` and all other definition resolvers inherit from it.
 

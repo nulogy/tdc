@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.6] - 2020-08-06
+
+#### Breaking Changes
+
+- Drop the `SingularGenerator` abstraction
+
 ## [0.3.5] - 2020-08-06
 
 - Add the `single_entry` method to `CatalogEntries`
