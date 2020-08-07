@@ -12,6 +12,12 @@ module Tdc
       def empty?
         to_h.empty?
       end
+
+      def single_entry
+        raise Tdc::FatalError, "There is more than one entry" if to_h.many?
+
+        to_h.first.second
+      end
     end
   end
 end
