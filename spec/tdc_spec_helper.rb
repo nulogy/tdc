@@ -7,6 +7,9 @@ require "tdc"
 # Require the shared test fixture
 require "support/tdc_fixture"
 
+# Require shared examples
+Dir["./spec/shared_examples/generators/**/*_shared_example.rb"].sort.each { |f| require f }
+
 # Opt-in helpers
 require "support/tdc_helper"
 

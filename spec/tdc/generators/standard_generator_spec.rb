@@ -8,6 +8,9 @@ RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
 
   subject(:generator) { Support::TdcFixture::SampleStandardGenerator.new(generation_context) }
 
+  include_examples "includes DefinitionSourcable"
+  include_examples "inherits from ConfigurableGenerator"
+
   it "generates" do
     instance_definitions = [
       instance_definition(tag: "costello", name: "Costello"),
@@ -19,38 +22,5 @@ RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
     expect(generator).to receive(:generate_instance).twice
 
     generator.generate
-  end
-
-  # TDC (2020-05-21): Consider using a Shared Example.
-  describe "definition sourcable" do
-    it "invoke _definition methods" do
-      instance_definitions = [
-        instance_definition(tag: "manning", name: "Manning", wait: 2.0)
-      ]
-
-      generator.inject_instance_definitions(instance_definitions)
-
-      generator.define_singleton_method :generate_instance do
-        add_result([name_definition, wait_definition])
-      end
-
-      generator.generate
-
-      expect(generator.results).to eq([["Manning", 2.0]])
-    end
-
-    it "tags are removed" do
-      instance_definitions = [
-        instance_definition(tag: "manning", name: "Manning", wait: 2.0)
-      ]
-
-      generator.inject_instance_definitions(instance_definitions)
-
-      generator.define_singleton_method :generate_instance do
-        add_result([tag_definition])
-      end
-
-      expect { generator.generate }.to raise_error(NameError)
-    end
   end
 end
