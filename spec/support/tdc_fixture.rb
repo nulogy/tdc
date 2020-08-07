@@ -13,6 +13,8 @@ module Support
 
       def inject_instance_definitions(instance_definitions)
         @instance_definitions = instance_definitions
+
+        self
       end
 
       def add_result(result)
