@@ -31,7 +31,6 @@ require "tdc/generators/definition_sourcable"
 # Generator Hierarchy
 require "tdc/generators/generator_base"
 require "tdc/generators/configurable_generator"
-require "tdc/generators/singular_generator"
 require "tdc/generators/standard_generator"
 
 # Definition Resolvers
