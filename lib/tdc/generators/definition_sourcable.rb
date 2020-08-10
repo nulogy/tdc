@@ -38,7 +38,7 @@ module Tdc
         definition_source&.key?(key) ? definition_source.fetch(key) : super
       end
 
-      def respond_to_missing?(method, include_all = false)
+      def respond_to_missing?(method, include_all = false) # rubocop:disable Style/OptionalBooleanParameter
         key = transform_method_to_definition_source_key(method)
 
         definition_source&.key?(key) ? true : super

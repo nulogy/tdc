@@ -6,6 +6,8 @@ module Tdc
     EMPTY_DEFINITIONS = []
 
     def initialize(catalog_root_directory)
+      super()
+
       @catalog_root_directory = catalog_root_directory
     end
 
