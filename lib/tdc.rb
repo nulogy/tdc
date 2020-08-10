@@ -19,6 +19,7 @@ require "tdc/with_indifferent_access_decorator"
 
 # Generators
 require "tdc/generators"
+require "tdc/generators/atx_context_factory"
 require "tdc/generators/generation_context"
 
 # Current Catalog
