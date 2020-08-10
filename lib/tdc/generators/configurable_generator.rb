@@ -3,8 +3,6 @@ module Tdc
     #
     # Knows how to provide a configurable instance definition.
     #
-    # Shared implementation between the StandardGenerator and the SingularGenerator abstract classes.
-    #
     class ConfigurableGenerator < Tdc::Generators::GeneratorBase
       include Tdc::Generators::DefinitionSourcable
 
@@ -44,9 +42,6 @@ module Tdc
       def run_atx_resolvers(instance_definition)
         atx_definitions = instance_definition.select { |k, _v| /_atx$/ =~ k }
 
-        # ARM (2020-08-04): Move all the way out so that all generators use the same atx_context.
-        atx_context = Time.zone
-
         atx_definitions.each do |k, v|
           # Remove the original _atx attribute.
           instance_definition.delete(k)
@@ -54,6 +49,10 @@ module Tdc
           # Add a standard _at attribute.
           instance_definition[k.delete_suffix("x")] = atx_context.instance_eval(v)
         end
+      end
+
+      def atx_context
+        Tdc::Generators::AtxContextFactory.instance.context
       end
     end
   end

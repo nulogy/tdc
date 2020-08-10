@@ -4,6 +4,8 @@ module Tdc
   #
   class InMemoryDataDefinition < Tdc::DataDefinition
     def initialize(path_elements_data = {})
+      super()
+
       @store = path_elements_data
     end
 

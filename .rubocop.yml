@@ -2,38 +2,18 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.5
+  NewCops: enable
+  TargetRubyVersion: 2.6
 
   Exclude:
     - 'bin/**/*'
 
-Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true
-
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 
 # Rubocop and I cannot agree.
 Layout/MultilineMethodCallBraceLayout:
   Enabled: false
-
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Lint/DeprecatedOpenSSLConstant:
-  Enabled: true
-
-Lint/DuplicateElsifCondition:
-  Enabled: true
-
-Lint/MixedRegexpCaptureTypes:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
 
 Metrics/BlockLength:
   Enabled: false
@@ -68,15 +48,6 @@ RSpec/MultipleExpectations:
 RSpec/SubjectStub:
   Enabled: false
 
-Style/AccessorGrouping:
-  Enabled: true
-
-Style/ArrayCoercion:
-  Enabled: true
-
-Style/BisectedAttrAccessor:
-  Enabled: true
-
 Style/BlockDelimiters:
   Enabled: true
   EnforcedStyle: line_count_based
@@ -84,36 +55,15 @@ Style/BlockDelimiters:
     - 'let'
     - 'subject'
 
-Style/CaseLikeIf:
-  Enabled: true
-
 Style/Documentation:
   Enabled: false
 
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
-Style/ExponentialNotation:
-  Enabled: true
-
 # We can ignore this small performance improvement.
 Style/FrozenStringLiteralComment:
   Enabled: false
-
-Style/HashAsLastArrayItem:
-  Enabled: true
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashLikeCase:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
 
 # We like to use the hash rocket in rake files.
 Style/HashSyntax:
@@ -123,21 +73,6 @@ Style/HashSyntax:
 # We are not going to optimize by freezing strings.
 Style/MutableConstant:
   Enabled: false
-
-Style/RedundantAssignment:
-  Enabled: true
-
-Style/RedundantFetchBlock:
-  Enabled: true
-
-Style/RedundantFileExtensionInRequire:
-  Enabled: true
-
-Style/RedundantRegexpCharacterClass:
-  Enabled: true
-
-Style/RedundantRegexpEscape:
-  Enabled: true
 
 # No need to mention StandardError.
 Style/RescueStandardError:
