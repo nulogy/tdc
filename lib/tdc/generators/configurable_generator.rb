@@ -3,8 +3,6 @@ module Tdc
     #
     # Knows how to provide a configurable instance definition.
     #
-    # Shared implementation between the StandardGenerator and the SingularGenerator abstract classes.
-    #
     class ConfigurableGenerator < Tdc::Generators::GeneratorBase
       include Tdc::Generators::DefinitionSourcable
 
