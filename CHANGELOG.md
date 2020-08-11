@@ -6,15 +6,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.8] - 2020-08-11
+
+#### New Features
+
+- Multiple subclass instances of `ExtendedAttributes::InterpreterBase` may be registered
+- A default extended attribute interpreter recognizes `_atx`, `_datex`, or `_onx` date/time attributes
+
+#### Breaking Changes
+
+- Rename `AtxContextFactory` to `ExtendedAttributes::InterpreterRegistry`
+
 ## [0.3.7] - 2020-08-10
 
 #### New Features
 
-- Register a context with the AtxContextFactory
+- Register a context with the `AtxContextFactory`
 
 ## [0.3.6.1] - 2020-08-10
 
-- Add the AtxContextFactory abstraction
+- Add the `AtxContextFactory` abstraction
 
 ## [0.3.6] - 2020-08-06
 

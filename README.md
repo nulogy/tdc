@@ -13,3 +13,5 @@ During generation the test data catalog will be represented by ```CatalogEntries
 **Data Definition DSL**
 
 ```DefinitionResolvable``` and ```DefinitionSourcable``` provide a DSL that you may use in your generators to work more easily with a ```DataDefinition```.
+
+By registering a class instance that inherits from ```ExtendedAttributes::InterpreterBase``` with the ```ExtendedAttributes::InterpreterRegistry``` you may extend the DSL that is used to interpret attribute values. 
