@@ -11,7 +11,7 @@ module Tdc
       source_definition_from :instance_definition
 
       def run_resolvers_and_generate_instance
-        run_atx_resolvers(instance_definition)
+        run_extended_attribute_interpreters(instance_definition)
         run_definition_resolvers(instance_definition)
 
         generate_instance
@@ -39,20 +39,12 @@ module Tdc
         configure_definition_source(instance_definition)
       end
 
-      def run_atx_resolvers(instance_definition)
-        atx_definitions = instance_definition.select { |k, _v| /_atx$/ =~ k }
-
-        atx_definitions.each do |k, v|
-          # Remove the original _atx attribute.
-          instance_definition.delete(k)
-
-          # Add a standard _at attribute.
-          instance_definition[k.delete_suffix("x")] = atx_context.instance_eval(v)
-        end
+      def run_extended_attribute_interpreters(instance_definition)
+        interpreters.each { |interpreter| interpreter.interpret(instance_definition) }
       end
 
-      def atx_context
-        Tdc::Generators::AtxContextFactory.instance.context
+      def interpreters
+        Tdc::ExtendedAttributes::InterpreterRegistry.instance.interpreters
       end
     end
   end
