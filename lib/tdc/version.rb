@@ -1,3 +1,3 @@
 module Tdc
-  VERSION = "0.3.6.1"
+  VERSION = "0.3.7"
 end
