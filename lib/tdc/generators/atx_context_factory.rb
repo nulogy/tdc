@@ -8,6 +8,10 @@ module Tdc
 
       attr_reader :context
 
+      def self.register(context:)
+        AtxContextFactory.instance.instance_variable_set(:@context, context)
+      end
+
       def initialize
         @context = Time.zone
       end
