@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.9] - 2020-08-12
+
+#### Breaking Changes
+
+- Collapse `ConfigurableGenerator` into `StandardGenerator`
+
 ## [0.3.8] - 2020-08-11
 
 #### New Features
