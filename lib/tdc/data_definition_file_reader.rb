@@ -29,7 +29,7 @@ module Tdc
       if File.exist?(definitions_file)
         load_yaml(definitions_file) || EMPTY_DEFINITIONS
       else
-        missing_data_definition(definitions_file)
+        EMPTY_DEFINITIONS
       end
     end
 
@@ -44,12 +44,6 @@ module Tdc
 
     def expand_erb(definitions_file)
       ERB.new(File.read(definitions_file)).result
-    end
-
-    def missing_data_definition(definitions_file)
-      return EMPTY_DEFINITIONS if ENV.key?("TDC_IGNORE_MISSING_TEST_DATA_DEFINITION_ERROR")
-
-      raise Tdc::FatalError, "Missing test definitions file: '#{definitions_file}'"
     end
   end
 end
