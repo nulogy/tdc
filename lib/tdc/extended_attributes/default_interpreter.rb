@@ -7,7 +7,7 @@ module Tdc
     #
     class DefaultInterpreter < Tdc::ExtendedAttributes::InterpreterBase
       def interpret(instance_definition)
-        extended_attribute_definitions = keep_extended_attributes_from(instance_definition)
+        extended_attribute_definitions = keep_extended_attributes(instance_definition)
 
         extended_attribute_definitions.each do |extended_attribute_key, extended_attribute_value|
           # Remove the extended attribute.
@@ -20,23 +20,27 @@ module Tdc
       end
 
       concerning :HookMethods do
-        def convert_to_standard_attribute(extended_attribute_key)
-          extended_attribute_key.gsub(/_(at|date|on)x$/, "_\\1")
-        end
-
         def extended_attribute_context
           Time.zone
-        end
-
-        def extended_attribute?(extended_attribute_key)
-          /_(at|date|on)x$/ =~ extended_attribute_key
         end
       end
 
       private
 
-      def keep_extended_attributes_from(instance_definition)
-        instance_definition.select { |extended_attribute_key, _| extended_attribute?(extended_attribute_key) }
+      EXTENDED_ATTRIBUTE_SUFFIX = "_xa"
+
+      def convert_to_standard_attribute(extended_attribute_key)
+        extended_attribute_key.delete_suffix(EXTENDED_ATTRIBUTE_SUFFIX)
+      end
+
+      def extended_attribute?(extended_attribute_key)
+        extended_attribute_key.end_with?(EXTENDED_ATTRIBUTE_SUFFIX)
+      end
+
+      def keep_extended_attributes(instance_definition)
+        instance_definition.select do |extended_attribute_key, _|
+          extended_attribute?(extended_attribute_key)
+        end
       end
     end
   end
