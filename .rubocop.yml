@@ -21,6 +21,10 @@ Metrics/BlockLength:
 Naming/MemoizedInstanceVariableName:
   EnforcedStyleForLeadingUnderscores: required
 
+Naming/VariableNumber:
+  Enabled: true
+  EnforcedStyle: snake_case
+
 RSpec/AnyInstance:
   Enabled: false
 
