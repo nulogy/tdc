@@ -15,17 +15,21 @@ module Tdc
       end
 
       def interpreters
-        @interpreters << Tdc::ExtendedAttributes::DefaultInterpreter.new if @interpreters.empty?
-
-        @interpreters
+        @interpreters.empty? ? [default_interpreter] : @interpreters
       end
 
       def register_interpreter(interpreter)
-        raise Tdc::FatalError, <<~MSG unless interpreter.is_a?(Tdc::ExtendedAttributes::InterpreterBase)
+        raise Tdc::FatalError, <<~MSG.chomp unless interpreter.is_a?(Tdc::ExtendedAttributes::InterpreterBase)
           Cannot register an interpreter unless it inherits from Tdc::ExtendedAttributes::InterpreterBase
         MSG
 
         @interpreters << interpreter
+      end
+
+      private
+
+      def default_interpreter
+        @_default_interpreter ||= Tdc::ExtendedAttributes::DefaultInterpreter.new
       end
     end
   end

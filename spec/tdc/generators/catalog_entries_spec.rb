@@ -13,6 +13,24 @@ RSpec.describe Tdc::Generators::CatalogEntries do
     end
   end
 
+  describe "#first" do
+    it "returns nil when the collection is empty" do
+      catalog_entries.collection = empty_collection
+
+      expect(catalog_entries.collection.first).to be_nil
+    end
+
+    it "returns the first entry" do
+      catalog_entries.collection = empty_collection
+
+      catalog_entries.collection.entry_1 = :value_1
+      catalog_entries.collection.entry_2 = :value_2
+      catalog_entries.collection.entry_3 = :value_3
+
+      expect(catalog_entries.collection.first).to be(:value_1)
+    end
+  end
+
   describe "#single_entry" do
     it "returns the one entry" do
       catalog_entries.collection = empty_collection
