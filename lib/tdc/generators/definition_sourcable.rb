@@ -33,9 +33,9 @@ module Tdc
       private
 
       def method_missing(method, *args)
-        if definition?(method)
+        if ghost_definition?(method)
           definition_source.fetch(method.to_s.gsub(/_definition$/, ""))
-        elsif optional_definition?(method)
+        elsif ghost_optional_definition?(method)
           definition_source[method.to_s.gsub(/_definition_optional$/, "")]
         else
           super
@@ -43,18 +43,14 @@ module Tdc
       end
 
       def respond_to_missing?(method, include_all = false) # rubocop:disable Style/OptionalBooleanParameter
-        definition?(method) || definition_optional?(method) ? true : super
+        ghost_definition?(method) || ghost_optional_definition?(method) ? true : super
       end
 
-      def transform_method_to_definition_source_key(method)
-        method.to_s.gsub(/_definition$/, "")
-      end
-
-      def definition?(method)
+      def ghost_definition?(method)
         method.to_s.end_with?("_definition")
       end
 
-      def optional_definition?(method)
+      def ghost_optional_definition?(method)
         method.to_s.end_with?("_definition_optional")
       end
     end
