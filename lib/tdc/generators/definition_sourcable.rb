@@ -3,7 +3,10 @@ module Tdc
     #
     # Creates ghost methods for use in generators.
     #
-    # All ghost methods are named 'key'_definition where 'key' is a key into the instance_definition hash.
+    # All ghost methods are named 'key'_definition or 'key'_definition_optional where 'key' is
+    # a key into the instance_definition hash.
+    #
+    # Choose optional if the key may not be present in the instance_definition.
     #
     # Example:
     #
@@ -11,6 +14,7 @@ module Tdc
     # ghost methods could be used to refer to the value associated with those keys:
     #
     #  line_definition
+    #  line_definition_optional
     #  replenishment_parameters_definition
     #
     module DefinitionSourcable
