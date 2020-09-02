@@ -3,7 +3,10 @@ module Tdc
     #
     # Creates ghost methods for use in generators.
     #
-    # All ghost methods are named 'key'_definition where 'key' is a key into the instance_definition hash.
+    # All ghost methods are named 'key'_definition or 'key'_definition_optional where 'key' is
+    # a key into the instance_definition hash.
+    #
+    # Choose optional if the key may not be present in the instance_definition.
     #
     # Example:
     #
@@ -11,6 +14,7 @@ module Tdc
     # ghost methods could be used to refer to the value associated with those keys:
     #
     #  line_definition
+    #  line_definition_optional
     #  replenishment_parameters_definition
     #
     module DefinitionSourcable
@@ -33,9 +37,9 @@ module Tdc
       private
 
       def method_missing(method, *args)
-        if definition?(method)
+        if ghost_definition?(method)
           definition_source.fetch(method.to_s.gsub(/_definition$/, ""))
-        elsif optional_definition?(method)
+        elsif ghost_optional_definition?(method)
           definition_source[method.to_s.gsub(/_definition_optional$/, "")]
         else
           super
@@ -43,18 +47,14 @@ module Tdc
       end
 
       def respond_to_missing?(method, include_all = false) # rubocop:disable Style/OptionalBooleanParameter
-        definition?(method) || definition_optional?(method) ? true : super
+        ghost_definition?(method) || ghost_optional_definition?(method) ? true : super
       end
 
-      def transform_method_to_definition_source_key(method)
-        method.to_s.gsub(/_definition$/, "")
-      end
-
-      def definition?(method)
+      def ghost_definition?(method)
         method.to_s.end_with?("_definition")
       end
 
-      def optional_definition?(method)
+      def ghost_optional_definition?(method)
         method.to_s.end_with?("_definition_optional")
       end
     end
