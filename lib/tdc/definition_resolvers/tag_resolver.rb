@@ -8,8 +8,6 @@ module Tdc
       attr_reader :key, :source
 
       def initialize(key:, source:)
-        super()
-
         @key = key
         @source = source
       end

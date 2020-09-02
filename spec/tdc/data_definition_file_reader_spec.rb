@@ -8,7 +8,7 @@ RSpec.describe Tdc::DataDefinitionFileReader do
   end
 
   it "runs the YAML through ERB" do
-    fully_qualified_path = File.join("catalog_root", "definition.yml")
+    fully_qualified_path = File.join("catalog_root", "definition.yml.erb")
 
     allow(File).to receive(:exist?).with(fully_qualified_path).and_return(true)
     allow(File).to receive(:read).with(fully_qualified_path).and_return(<<~YAML)
