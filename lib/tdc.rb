@@ -41,6 +41,14 @@ require "tdc/generators/definition_sourcable"
 require "tdc/generators/generator_base"
 require "tdc/generators/standard_generator"
 
+# YAML Readers
+require "tdc/yaml_readers"
+require "tdc/yaml_readers/null_yaml_reader"
+require "tdc/yaml_readers/yaml_reader_base"
+require "tdc/yaml_readers/yaml_reader"
+require "tdc/yaml_readers/yaml_reader_with_expansion"
+require "tdc/yaml_readers/yaml_reader_factory"
+
 #
 # A framework for building a Test Data Catalog
 #

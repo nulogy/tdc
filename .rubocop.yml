@@ -15,6 +15,10 @@ Layout/LineLength:
 Layout/MultilineMethodCallBraceLayout:
   Enabled: false
 
+# Revisit. Seems a little harsh.
+Lint/MissingSuper:
+  Enabled: false
+
 Metrics/BlockLength:
   Enabled: false
 
