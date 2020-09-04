@@ -7,6 +7,10 @@ module Tdc
       @store = path_elements_data
     end
 
+    def catalog_root_directory
+      raise Tdc::FatalError
+    end
+
     def read(*path_elements)
       @store.fetch(path_elements) do
         raise Tdc::FatalError, "The path did not have any data associated with it: #{path_elements.inspect}"
