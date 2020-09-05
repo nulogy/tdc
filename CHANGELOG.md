@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.5] - 2020-09-04
+
+- Add the `catalog_directory` method to `GenerationContext`
+
 ## [0.4.4] - 2020-08-25
 
 #### Breaking Changes

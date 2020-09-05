@@ -10,6 +10,10 @@ module Tdc
         @current_catalog = current_catalog
         @data_definition = data_definition
       end
+
+      def catalog_directory
+        data_definition.reader.catalog_root_directory
+      end
     end
   end
 end

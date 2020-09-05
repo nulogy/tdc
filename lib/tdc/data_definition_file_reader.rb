@@ -5,6 +5,8 @@ module Tdc
   class DataDefinitionFileReader < Tdc::DataDefinition
     EMPTY_DEFINITIONS = []
 
+    attr_reader :catalog_root_directory
+
     def initialize(catalog_root_directory)
       @catalog_root_directory = catalog_root_directory
     end
