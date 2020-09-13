@@ -14,6 +14,10 @@ module Tdc
         @interpreters = []
       end
 
+      def clear
+        @interpreters = []
+      end
+
       def interpreters
         @interpreters.empty? ? [default_interpreter] : @interpreters
       end
@@ -22,6 +26,9 @@ module Tdc
         raise Tdc::FatalError, <<~MSG.chomp unless interpreter.is_a?(Tdc::ExtendedAttributes::InterpreterBase)
           Cannot register an interpreter unless it inherits from Tdc::ExtendedAttributes::InterpreterBase
         MSG
+
+        # Avoid registering the same class of interpreter a second time.
+        return if @interpreters.map(&:class).include?(interpreter.class)
 
         @interpreters << interpreter
       end

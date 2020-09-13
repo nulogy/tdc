@@ -1,15 +1,30 @@
 RSpec.describe Tdc::ExtendedAttributes::InterpreterRegistry do
   subject(:registry) { described_class.instance }
 
-  it "return the default interpreter when there are no registered interpreters" do
+  before do
+    registry.clear
+  end
+
+  it "returns the default interpreter when there are no registered interpreters" do
     expect(registry.interpreters).to contain_exactly(a_kind_of(Tdc::ExtendedAttributes::DefaultInterpreter))
   end
 
-  it "return the registered interpreters" do
-    interpreter_1 = create_interpreter
-    interpreter_2 = create_interpreter
+  it "returns the registered interpreters" do
+    interpreter_1 = create_interpreter_1
+    interpreter_2 = create_interpreter_2
 
     registry.register_interpreter(interpreter_1)
+    registry.register_interpreter(interpreter_2)
+
+    expect(registry.interpreters).to contain_exactly(interpreter_1, interpreter_2)
+  end
+
+  it "avoids registering the same interpreter a second time" do
+    interpreter_1 = create_interpreter_1
+    interpreter_2 = create_interpreter_2
+
+    registry.register_interpreter(interpreter_1)
+    registry.register_interpreter(interpreter_2)
     registry.register_interpreter(interpreter_2)
 
     expect(registry.interpreters).to contain_exactly(interpreter_1, interpreter_2)
@@ -21,7 +36,14 @@ RSpec.describe Tdc::ExtendedAttributes::InterpreterRegistry do
     )
   end
 
-  def create_interpreter
+  def create_interpreter_1
+    Class.new(Tdc::ExtendedAttributes::InterpreterBase) do
+      def interpret(_instance_definition)
+      end
+    end.new
+  end
+
+  def create_interpreter_2
     Class.new(Tdc::ExtendedAttributes::InterpreterBase) do
       def interpret(_instance_definition)
       end
