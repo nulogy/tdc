@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.4.1] - 2020-09-12
+
+- Avoid registering the same class of interpreter a second time
+
 ## [0.4.4] - 2020-08-25
 
 #### Breaking Changes
