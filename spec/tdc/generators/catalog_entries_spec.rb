@@ -13,6 +13,19 @@ RSpec.describe Tdc::Generators::CatalogEntries do
     end
   end
 
+  describe "#entries" do
+    it "initially empty" do
+      expect(catalog_entries.entries).to be_empty
+    end
+
+    it "returns an array of entries" do
+      catalog_entries.add_catalog_entry(:floor_location, "Shipping")
+      catalog_entries.add_catalog_entry(:pallet_capacity, 20)
+
+      expect(catalog_entries.entries).to contain_exactly(:floor_location, :pallet_capacity)
+    end
+  end
+
   describe "#first" do
     it "returns nil when the collection is empty" do
       catalog_entries.collection = empty_collection
