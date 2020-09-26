@@ -20,7 +20,10 @@ Lint/MissingSuper:
   Enabled: false
 
 Metrics/BlockLength:
-  Enabled: false
+  Exclude:
+    - 'tdc.gemspec'
+    - '**/*_shared_example.rb'
+    - '**/*_spec.rb'
 
 Naming/MemoizedInstanceVariableName:
   EnforcedStyleForLeadingUnderscores: required
