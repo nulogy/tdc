@@ -25,7 +25,11 @@ module Tdc
         sourced_object = catalog_entry.send(tag)
 
         unless sourced_object
-          message = "Could not find a tag reference for '#{key}' in the catalog entries provided."
+          message = <<~MESSAGE
+            Could not resolve key '#{key}' from source '#{source}'.
+
+            Attempted to resolve tag '#{tag}' from these tags: #{catalog_entry.entries.sort.map { |entry| "'#{entry}'" }.to_sentence}
+          MESSAGE
 
           raise Tdc::FatalError, message
         end
