@@ -13,6 +13,10 @@ module Tdc
         to_h.empty?
       end
 
+      def entries
+        to_h.keys
+      end
+
       def first
         to_h.first&.second
       end

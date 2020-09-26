@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.5] - 2020-09-26
+
+- Better error message when a tag cannot be resolved
+
 ## [0.4.4.1] - 2020-09-12
 
 - Avoid registering the same class of interpreter a second time
