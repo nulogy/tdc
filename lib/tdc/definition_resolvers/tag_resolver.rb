@@ -24,18 +24,22 @@ module Tdc
         # Use the tag to source an object from the current catalog.
         sourced_object = catalog_entry.send(tag)
 
-        unless sourced_object
-          message = <<~MESSAGE
-            Could not resolve key '#{key}' from source '#{source}'.
-
-            Attempted to resolve tag '#{tag}' from these tags: #{catalog_entry.entries.sort.map { |entry| "'#{entry}'" }.to_sentence}
-          MESSAGE
-
-          raise Tdc::FatalError, message
-        end
+        unresolvable_tag(tag, catalog_entry) unless sourced_object
 
         # Replace the tag value with the sourced object.
         instance_definition[key] = sourced_object
+      end
+
+      private
+
+      def unresolvable_tag(tag, catalog_entry)
+        source_tags = catalog_entry.entries.sort.map { |entry| "'#{entry}'" }.to_sentence
+
+        raise Tdc::FatalError, <<~MESSAGE
+          Could not resolve key '#{key}' from source '#{source}'.
+
+          Attempted to resolve tag '#{tag}' from these tags: #{source_tags}
+        MESSAGE
       end
     end
   end
