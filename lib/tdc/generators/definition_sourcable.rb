@@ -46,7 +46,7 @@ module Tdc
         end
       end
 
-      def respond_to_missing?(method, include_all = false) # rubocop:disable Style/OptionalBooleanParameter
+      def respond_to_missing?(method, include_all = false)
         ghost_definition?(method) || ghost_optional_definition?(method) ? true : super
       end
 
