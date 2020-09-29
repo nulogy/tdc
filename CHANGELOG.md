@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.6.1] - 2020-09-29
+
+- Add the #catalog_root_directory method to DataDefinitionFileReader
+
 ## [0.4.6] - 2020-09-26
 
 - Better error message when a tag cannot be resolved
