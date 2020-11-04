@@ -28,13 +28,14 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "activesupport", "~> 5.2.4"
+  spec.add_runtime_dependency "activesupport", ">= 5.2.4", "< 6.1"
 
-  spec.add_development_dependency "rake", ">= 12.1", "< 13.1"
-  spec.add_development_dependency "rspec", ">= 3.9", "< 4.0"
-  spec.add_development_dependency "rubocop", "~> 0.89"
+  spec.add_development_dependency "appraisal", "~> 2.3"
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "rspec", ">= 3.10", "< 4.0"
+  spec.add_development_dependency "rubocop", "~> 0.93"
   spec.add_development_dependency "rubocop-performance", "~> 1.8"
-  spec.add_development_dependency "rubocop-rspec", "~> 1.42"
+  spec.add_development_dependency "rubocop-rspec", "~> 1.44"
   spec.add_development_dependency "rubycritic", "~> 4.5"
-  spec.add_development_dependency "simplecov", "~> 0.17"
+  spec.add_development_dependency "simplecov", "~> 0.19"
 end
