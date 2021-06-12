@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2021-06-12
+
+- Support Rails 6.1.x
+- Drop support for Rails 5.2.x
+
 ## [0.4.7] - 2020-11-04
 
 - Support Rails 6.0.x
