@@ -14,4 +14,5 @@ RubyCritic::RakeTask.new do |task|
   task.paths = files
 end
 
-task :default => [:rubocop, :spec]
+task :all => [:rubocop, :spec]
+task :default => [:spec]
