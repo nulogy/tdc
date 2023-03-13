@@ -4,7 +4,7 @@ require:
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
 
   Exclude:
     - 'bin/**/*'
@@ -70,6 +70,9 @@ Style/BlockDelimiters:
 Style/Documentation:
   Enabled: false
 
+Style/DocumentDynamicEvalDefinition:
+  Enabled: false
+
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
@@ -84,6 +87,10 @@ Style/HashSyntax:
 
 # We are not going to optimize by freezing strings.
 Style/MutableConstant:
+  Enabled: false
+
+# We are going to continue to use OpenStruct
+Style/OpenStructUse:
   Enabled: false
 
 # No need to mention StandardError.

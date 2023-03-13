@@ -21,7 +21,7 @@ RSpec.describe Tdc::DefinitionResolvers::TagResolver do
 
     instance_definition = { floor_location: :shipping }
 
-    resolver.resolve(instance_definition)
+    expect { resolver.resolve(instance_definition) }.to_not raise_error
   end
 
   it "raises and error when a key cannot be resolved in the instance definition" do
