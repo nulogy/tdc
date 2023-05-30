@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.1] - 2023-05-30
+
+* Compatibility with Psych 4 (and therefore Ruby 3.1)
+
 ## [0.6.0] - 2023-03-13
 
 - Support Rails 7.0.x
