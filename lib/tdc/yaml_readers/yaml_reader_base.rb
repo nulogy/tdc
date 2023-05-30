@@ -18,7 +18,7 @@ module Tdc
       end
 
       def definitions_source
-        source_string.empty? ? [] : YAML.load(source_string) # rubocop:disable Security/YAMLLoad
+        source_string.empty? ? [] : YAML.safe_load(source_string, permitted_classes: [Date])
       rescue => e
         raise Tdc::FatalError, <<~MSG
           Unable to load YAML from #{definitions_file}
