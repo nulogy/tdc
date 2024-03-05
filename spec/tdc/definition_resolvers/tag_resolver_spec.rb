@@ -24,22 +24,41 @@ RSpec.describe Tdc::DefinitionResolvers::TagResolver do
     expect { resolver.resolve(instance_definition) }.to_not raise_error
   end
 
-  it "raises and error when a key cannot be resolved in the instance definition" do
-    users = Tdc::Generators::CatalogEntries.new
-    users.add_catalog_entry(:laurie_lancaster, :resolvable_user_laurie_lancaster)
-    users.add_catalog_entry(:nellie_adams, :resolvable_user_nellie_adams)
+  describe "raises an error" do
+    it "when a tag cannot be resolved in the instance definition" do
+      users = Tdc::Generators::CatalogEntries.new
+      users.add_catalog_entry(:laurie_lancaster, :resolvable_user_laurie_lancaster)
 
-    current_catalog.add_catalog_entry(:users, users)
+      current_catalog.add_catalog_entry(:users, users)
 
-    resolver = create_resolver(key: :user, source: "users")
+      resolver = create_resolver(key: :user, source: "users")
 
-    instance_definition = { user: :unknown_user }
+      instance_definition = { user: nil }
 
-    expect { resolver.resolve(instance_definition) }.to raise_error(Tdc::FatalError, <<~EXPECTED_MESSAGE)
-      Could not resolve key 'user' from source 'users'.
+      expect { resolver.resolve(instance_definition) }.to raise_error(Tdc::FatalError, <<~EXPECTED_MESSAGE)
+        Could not resolve key 'user' from source 'users'.
 
-      Attempted to resolve tag 'unknown_user' from these tags: 'laurie_lancaster' and 'nellie_adams'
-    EXPECTED_MESSAGE
+        Attempted to resolve tag '' from these tags: 'laurie_lancaster'
+      EXPECTED_MESSAGE
+    end
+
+    it "when a key cannot be resolved in the instance definition" do
+      users = Tdc::Generators::CatalogEntries.new
+      users.add_catalog_entry(:laurie_lancaster, :resolvable_user_laurie_lancaster)
+      users.add_catalog_entry(:nellie_adams, :resolvable_user_nellie_adams)
+
+      current_catalog.add_catalog_entry(:users, users)
+
+      resolver = create_resolver(key: :user, source: "users")
+
+      instance_definition = { user: :unknown_user }
+
+      expect { resolver.resolve(instance_definition) }.to raise_error(Tdc::FatalError, <<~EXPECTED_MESSAGE)
+        Could not resolve key 'user' from source 'users'.
+
+        Attempted to resolve tag 'unknown_user' from these tags: 'laurie_lancaster' and 'nellie_adams'
+      EXPECTED_MESSAGE
+    end
   end
 
   def create_resolver(key:, source:)

@@ -21,6 +21,8 @@ module Tdc
         # Before resolution the instance definition value is a tag.
         tag = instance_definition[key]
 
+        unresolvable_tag(tag, catalog_entry) unless tag
+
         # Use the tag to source an object from the current catalog.
         sourced_object = catalog_entry.send(tag)
 
