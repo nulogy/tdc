@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0] - 2024-08-16
+
+- Support Rails 7.0.x and 7.1.x
+- Support Ruby 3.1
+
+#### Breaking Changes
+
+- Drop support for Ruby 3.0
+- Drop support for Rails 6.1
+
 ## [0.6.2] - 2024-03-05
 
 - Better error message when a tag cannot be resolved

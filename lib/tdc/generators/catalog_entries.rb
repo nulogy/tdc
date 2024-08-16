@@ -6,7 +6,7 @@ module Tdc
     #
     class CatalogEntries < OpenStruct
       def add_catalog_entry(tag, entry)
-        send("#{tag}=", entry)
+        send(:"#{tag}=", entry)
       end
 
       def empty?
