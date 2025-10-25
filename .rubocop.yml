@@ -80,9 +80,12 @@ Style/DocumentDynamicEvalDefinition:
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
-# We can ignore this small performance improvement.
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
+  Exclude:
+    - 'Appraisals'
+    - 'Gemfile'
+    - 'Rakefile'
 
 # We like to use the hash rocket in rake files.
 Style/HashSyntax:
