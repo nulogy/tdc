@@ -32,14 +32,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "activesupport", ">= 7.2", "< 8.1"
   spec.add_dependency "zeitwerk", ">= 2.7"
-
-  spec.add_development_dependency "appraisal", "~> 2.5"
-  spec.add_development_dependency "rake", "~> 13.2"
-  spec.add_development_dependency "rspec", "~> 3.13"
-  spec.add_development_dependency "rubocop", "~> 1.69"
-  spec.add_development_dependency "rubocop-performance", "~> 1.23"
-  spec.add_development_dependency "rubocop-rake", "~> 0.6"
-  spec.add_development_dependency "rubocop-rspec", "~> 3.3"
-  spec.add_development_dependency "rubycritic", "~> 4.9"
-  spec.add_development_dependency "simplecov", "~> 0.22"
 end
