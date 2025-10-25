@@ -8,6 +8,8 @@ module Tdc
     # Note: extended attribute keys are expected to be strings rather than symbols.
     #
     class DefaultInterpreter < Tdc::ExtendedAttributes::InterpreterBase
+      EXTENDED_ATTRIBUTE_SUFFIX = "_xa"
+
       def interpret(instance_definition)
         extended_attribute_definitions = keep_extended_attributes(instance_definition)
 
@@ -28,8 +30,6 @@ module Tdc
       end
 
       private
-
-      EXTENDED_ATTRIBUTE_SUFFIX = "_xa"
 
       def convert_to_standard_attribute(extended_attribute_key)
         extended_attribute_key.delete_suffix(EXTENDED_ATTRIBUTE_SUFFIX)
