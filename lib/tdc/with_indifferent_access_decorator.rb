@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tdc
   #
   # Knows how to transform the result of calling the TestDefinitionReader#read method from an Array

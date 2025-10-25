@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Specifies behaviour for the DefinitionSourcable concern. Depends on generator to be defined.
 #

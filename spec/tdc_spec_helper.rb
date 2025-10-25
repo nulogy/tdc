@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Require the RSpec configuration
 require "spec_helper"
 

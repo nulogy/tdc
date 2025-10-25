@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tdc
   #
   # Knows how to read data definitions from an in-memory representation.

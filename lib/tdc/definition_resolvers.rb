@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tdc
   #
   # Namespace to host definition resolvers.

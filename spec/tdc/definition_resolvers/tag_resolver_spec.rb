@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Tdc::DefinitionResolvers::TagResolver do
   let(:current_catalog) { Tdc::Generators::CatalogEntries.new }
 

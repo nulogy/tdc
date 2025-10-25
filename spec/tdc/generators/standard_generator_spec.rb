@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
   let(:current_catalog) { instance_double(Tdc::Generators::CatalogEntries) }
   let(:data_definition) { instance_double(Tdc::DataDefinition) }

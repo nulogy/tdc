@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Tdc::DataDefinitionFileReader do
   it "does not raise when test definition file is missing" do
     reader = create_reader("catalog_root")

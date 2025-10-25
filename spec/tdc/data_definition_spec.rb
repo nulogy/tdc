@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Tdc::DataDefinition do
   subject(:data_definition) {
     Class.new(described_class) do
