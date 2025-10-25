@@ -10,7 +10,7 @@ RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
 
   subject(:generator) { Support::TdcFixture::SampleStandardGenerator.new(generation_context) }
 
-  include_examples "includes DefinitionSourcable"
+  it_behaves_like "includes DefinitionSourcable"
 
   it "generates" do
     instance_definitions = [
