@@ -86,6 +86,7 @@ Style/FrozenStringLiteralComment:
     - 'Appraisals'
     - 'Gemfile'
     - 'Rakefile'
+    - 'gemfiles/*.gemfile'
 
 # We like to use the hash rocket in rake files.
 Style/HashSyntax:
