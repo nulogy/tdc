@@ -1,11 +1,12 @@
-require:
+plugins:
   - rubocop-performance
   - rubocop-rake
   - rubocop-rspec
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.1
+  SuggestExtensions: false
+  TargetRubyVersion: 3.3
 
   Exclude:
     - 'bin/**/*'
@@ -80,9 +81,13 @@ Style/DocumentDynamicEvalDefinition:
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
-# We can ignore this small performance improvement.
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
+  Exclude:
+    - 'Appraisals'
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'gemfiles/*.gemfile'
 
 # We like to use the hash rocket in rake files.
 Style/HashSyntax:

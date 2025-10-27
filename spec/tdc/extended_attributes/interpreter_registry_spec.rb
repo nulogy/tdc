@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Tdc::ExtendedAttributes::InterpreterRegistry do
   subject(:registry) { described_class.instance }
 

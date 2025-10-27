@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Tdc::Generators::CatalogEntries do
   subject(:catalog_entries) { described_class.new }
 

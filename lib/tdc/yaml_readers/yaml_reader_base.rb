@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tdc
   module YamlReaders
     #
@@ -40,9 +42,9 @@ module Tdc
 
       def definitions_file
         @_definitions_file ||= begin
-          fully_qualified_path_elements = [@catalog_root_directory].concat(@path_elements.map(&:to_s))
+          fully_qualified_path_elements = [@catalog_root_directory] + @path_elements.map(&:to_s)
 
-          fully_qualified_path_elements.last.concat(file_extension)
+          fully_qualified_path_elements[-1] = "#{fully_qualified_path_elements.last}#{file_extension}"
 
           File.join(*fully_qualified_path_elements)
         end

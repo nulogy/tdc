@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Tdc::ExtendedAttributes::DefaultInterpreter do
   subject(:default_interpreter) { described_class.new }
 

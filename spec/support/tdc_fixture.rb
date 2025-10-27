@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Support
   #
   # A globally shared test fixture. See the tdc_spec_helper.
