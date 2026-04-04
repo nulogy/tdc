@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4] - 2026-04-04
+
+#### New Features
+
+- Update-or-create support in `StandardGenerator`: when an extension row's tag matches a previously created
+  record, the generator routes to `update_instance` instead of `generate_instance`
+- `GenerationContext` tracks updating state via `with_updating` / `updating?`
+- `DefinitionResolver` exposes `updating?` via generation context so subclass resolvers can skip missing keys
+  when updating
+
 ## [1.3] - 2025-10-25
 
 - Support Ruby 3.4
