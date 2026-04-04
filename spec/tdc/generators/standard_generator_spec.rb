@@ -68,6 +68,16 @@ RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
       expect(result.manning.attributes).to include("name" => "Manning", "score" => 50)
     end
 
+    it "does not confuse a tag with an inherited method name" do
+      instance_definitions = [
+        instance_definition(tag: "display", name: "Displays"),
+      ]
+
+      generator.inject_instance_definitions(instance_definitions)
+
+      expect { generator.generate }.not_to output.to_stdout
+    end
+
     it "sets updating? on generation_context during update" do
       updating_during_call = nil
 
