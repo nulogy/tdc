@@ -77,7 +77,7 @@ module Tdc
       def find_existing_record(tag, catalog_entries)
         return unless tag
 
-        catalog_entries.respond_to?(tag) ? catalog_entries.send(tag) : nil
+        catalog_entries.to_h.key?(tag.to_sym) ? catalog_entries.send(tag) : nil
       end
 
       def configure_instance_definition(instance_definition)

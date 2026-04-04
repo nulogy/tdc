@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-04-04
+
+- Fix tag lookup colliding with inherited `Object` methods (e.g., `display`) in `StandardGenerator`
+
 ## [1.4] - 2026-04-04
 
 #### New Features
