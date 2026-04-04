@@ -24,4 +24,68 @@ RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
 
     generator.generate
   end
+
+  describe "update-or-create" do
+    subject(:generator) { Support::TdcFixture::FakeRecordGenerator.new(generation_context) }
+
+    it "creates a record when the tag is new" do
+      instance_definitions = [
+        instance_definition(tag: "costello", name: "Costello"),
+      ]
+
+      generator.inject_instance_definitions(instance_definitions)
+
+      result = generator.generate
+
+      expect(result.costello.attributes).to include("name" => "Costello")
+    end
+
+    it "updates an existing record when the tag matches a previously created record" do
+      instance_definitions = [
+        instance_definition(tag: "costello", name: "Costello", score: 10),
+        instance_definition(tag: "costello", score: 99),
+      ]
+
+      generator.inject_instance_definitions(instance_definitions)
+
+      result = generator.generate
+
+      expect(result.costello.attributes).to include("name" => "Costello", "score" => 99)
+    end
+
+    it "creates new records alongside updates to existing records" do
+      instance_definitions = [
+        instance_definition(tag: "costello", name: "Costello", score: 10),
+        instance_definition(tag: "costello", score: 99),
+        instance_definition(tag: "manning", name: "Manning", score: 50),
+      ]
+
+      generator.inject_instance_definitions(instance_definitions)
+
+      result = generator.generate
+
+      expect(result.costello.attributes).to include("name" => "Costello", "score" => 99)
+      expect(result.manning.attributes).to include("name" => "Manning", "score" => 50)
+    end
+
+    it "sets updating? on generation_context during update" do
+      updating_during_call = nil
+
+      allow(generator).to receive(:update_instance).and_wrap_original do |method, existing_record|
+        updating_during_call = generation_context.updating?
+        method.call(existing_record)
+      end
+
+      instance_definitions = [
+        instance_definition(tag: "costello", name: "Costello"),
+        instance_definition(tag: "costello", score: 99),
+      ]
+
+      generator.inject_instance_definitions(instance_definitions)
+      generator.generate
+
+      expect(updating_during_call).to be true
+      expect(generation_context.updating?).to be false
+    end
+  end
 end

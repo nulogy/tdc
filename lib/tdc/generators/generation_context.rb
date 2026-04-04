@@ -11,6 +11,18 @@ module Tdc
       def initialize(current_catalog:, data_definition:)
         @current_catalog = current_catalog
         @data_definition = data_definition
+        @updating = false
+      end
+
+      def updating?
+        @updating
+      end
+
+      def with_updating
+        @updating = true
+        yield
+      ensure
+        @updating = false
       end
     end
   end

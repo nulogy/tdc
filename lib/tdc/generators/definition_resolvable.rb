@@ -42,6 +42,7 @@ module Tdc
       def run_definition_resolvers(instance_definition)
         _definition_resolvers.each do |definition_resolver|
           definition_resolver.configure_current_catalog(current_catalog)
+          definition_resolver.configure_generation_context(generation_context)
 
           definition_resolver.resolve(instance_definition)
         end
