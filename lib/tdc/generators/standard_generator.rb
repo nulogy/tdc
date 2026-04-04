@@ -20,7 +20,13 @@ module Tdc
             # Delete the tag so that the models do not need to filter it out.
             tag = instance_definition.delete("tag")
 
-            generated = run_resolvers_and_generate_instance
+            existing_record = find_existing_record(tag, catalog_entries)
+
+            if existing_record
+              generated = run_resolvers_and_update_instance(existing_record)
+            else
+              generated = run_resolvers_and_generate_instance
+            end
 
             # Add generated instance to the catalog entries whenever a tag provided.
             catalog_entries.add_catalog_entry(tag, generated) if tag
@@ -35,11 +41,28 @@ module Tdc
         generate_instance
       end
 
+      def run_resolvers_and_update_instance(existing_record)
+        generation_context.with_updating do
+          run_extended_attribute_interpreters(instance_definition)
+          run_definition_resolvers(instance_definition)
+
+          update_instance(existing_record)
+        end
+      end
+
       #
       # Hook method: subclasses are expected to define how to generate a model instance.
       #
       def generate_instance
         raise Tdc::MissingOverrideError, "Implement the 'generate_instance' method"
+      end
+
+      #
+      # Hook method: subclasses may override to customize update behavior for existing records.
+      #
+      def update_instance(existing_record)
+        existing_record.update!(instance_definition)
+        existing_record
       end
 
       #
@@ -50,6 +73,12 @@ module Tdc
       end
 
       private
+
+      def find_existing_record(tag, catalog_entries)
+        return unless tag
+
+        catalog_entries.respond_to?(tag) ? catalog_entries.send(tag) : nil
+      end
 
       def configure_instance_definition(instance_definition)
         @instance_definition = instance_definition
