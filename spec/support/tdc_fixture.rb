@@ -36,7 +36,6 @@ module Support
 
       def update!(new_attributes)
         @attributes = @attributes.merge(new_attributes)
-        true
       end
 
       def [](key)

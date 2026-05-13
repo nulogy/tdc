@@ -15,21 +15,7 @@ module Tdc
       def generate
         CatalogEntries.new.tap do |catalog_entries|
           instance_definitions.each do |instance_definition|
-            configure_instance_definition(instance_definition)
-
-            # Delete the tag so that the models do not need to filter it out.
-            tag = instance_definition.delete("tag")
-
-            existing_record = find_existing_record(tag, catalog_entries)
-
-            if existing_record
-              generated = run_resolvers_and_update_instance(existing_record)
-            else
-              generated = run_resolvers_and_generate_instance
-            end
-
-            # Add generated instance to the catalog entries whenever a tag provided.
-            catalog_entries.add_catalog_entry(tag, generated) if tag
+            generate_or_update(instance_definition, catalog_entries)
           end
         end
       end
@@ -73,6 +59,24 @@ module Tdc
       end
 
       private
+
+      def generate_or_update(instance_definition, catalog_entries)
+        configure_instance_definition(instance_definition)
+
+        # Delete the tag so that the models do not need to filter it out.
+        tag = instance_definition.delete("tag")
+
+        existing_record = find_existing_record(tag, catalog_entries)
+
+        generated = if existing_record
+                      run_resolvers_and_update_instance(existing_record)
+                    else
+                      run_resolvers_and_generate_instance
+                    end
+
+        # Add generated instance to the catalog entries whenever a tag provided.
+        catalog_entries.add_catalog_entry(tag, generated) if tag
+      end
 
       def find_existing_record(tag, catalog_entries)
         return unless tag

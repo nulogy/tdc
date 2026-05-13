@@ -30,7 +30,7 @@ RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
 
     it "creates a record when the tag is new" do
       instance_definitions = [
-        instance_definition(tag: "costello", name: "Costello"),
+        instance_definition(tag: "costello", name: "Costello")
       ]
 
       generator.inject_instance_definitions(instance_definitions)
@@ -43,7 +43,7 @@ RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
     it "updates an existing record when the tag matches a previously created record" do
       instance_definitions = [
         instance_definition(tag: "costello", name: "Costello", score: 10),
-        instance_definition(tag: "costello", score: 99),
+        instance_definition(tag: "costello", score: 99)
       ]
 
       generator.inject_instance_definitions(instance_definitions)
@@ -57,7 +57,7 @@ RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
       instance_definitions = [
         instance_definition(tag: "costello", name: "Costello", score: 10),
         instance_definition(tag: "costello", score: 99),
-        instance_definition(tag: "manning", name: "Manning", score: 50),
+        instance_definition(tag: "manning", name: "Manning", score: 50)
       ]
 
       generator.inject_instance_definitions(instance_definitions)
@@ -70,12 +70,12 @@ RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
 
     it "does not confuse a tag with an inherited method name" do
       instance_definitions = [
-        instance_definition(tag: "display", name: "Displays"),
+        instance_definition(tag: "display", name: "Displays")
       ]
 
       generator.inject_instance_definitions(instance_definitions)
 
-      expect { generator.generate }.not_to output.to_stdout
+      expect { generator.generate }.to_not output.to_stdout
     end
 
     it "sets updating? on generation_context during update" do
@@ -88,7 +88,7 @@ RSpec.describe Tdc::Generators::StandardGenerator, :tdc do
 
       instance_definitions = [
         instance_definition(tag: "costello", name: "Costello"),
-        instance_definition(tag: "costello", score: 99),
+        instance_definition(tag: "costello", score: 99)
       ]
 
       generator.inject_instance_definitions(instance_definitions)
