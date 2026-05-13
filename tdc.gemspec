@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage = "https://github.com/nulogy/tdc"
   spec.license = "MIT"
 
-  spec.required_ruby_version = Gem::Requirement.new(">= 3.3")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.4")
 
   spec.metadata = {
     "homepage_uri" => "https://github.com/nulogy/tdc",
@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "activesupport", ">= 7.2", "< 8.1"
+  spec.add_dependency "activesupport", ">= 8.0", "< 8.2"
   spec.add_dependency "ostruct", ">= 0.6"
   spec.add_dependency "zeitwerk", ">= 2.7"
 end
